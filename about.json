@@ -1,0 +1,8 @@
+{
+  "name": "discourse-custom-aside-links",
+  "about": "Adds an admin-configurable collapsible sidebar section with custom links, restricted to selected groups",
+  "meta_topic_id": null,
+  "authors": "Stefano Sisti",
+  "category": "navigation",
+  "tags": ["sidebar"]
+}

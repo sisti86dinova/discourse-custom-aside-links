@@ -1,0 +1,21 @@
+plugins:
+  custom_aside_links_enabled:
+    client: true
+    default: true
+
+  custom_aside_links_section_title:
+    client: true
+    default: "Creazione contenuti"
+
+  custom_aside_links_visible_groups:
+    client: true
+    type: group_list
+    list_type: compact
+    default: ""
+    allow_any: false
+
+  custom_aside_links:
+    client: true
+    type: list
+    list_type: compact
+    default: ""

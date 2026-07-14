@@ -1,0 +1,6 @@
+en:
+  site_settings:
+    custom_aside_links_enabled: "Enable the custom aside links sidebar section."
+    custom_aside_links_section_title: "Title shown on the custom collapsible sidebar section."
+    custom_aside_links_visible_groups: "Groups that can see the custom aside links section. Leave empty to show it to everyone."
+    custom_aside_links: "Links shown in the custom aside section. One entry per line, format: icon,label,href — icon is a Font Awesome icon name (e.g. far-pen-to-square), label is the link text, href is the URL (relative or absolute)."
