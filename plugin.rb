@@ -8,4 +8,6 @@
 # url: https://github.com/dinova-one/discourse-custom-aside-links
 # required_version: 2.7.0
 
+require_relative "lib/discourse_custom_aside_links/custom_aside_links_json_schema"
+
 enabled_site_setting :custom_aside_links_enabled

@@ -1,20 +1,29 @@
 import { apiInitializer } from "discourse/lib/api";
 
 const ENTRY_SEPARATOR = "|";
-const LINK_FIELD_SEPARATOR = ",";
 const SECTION_NAME = "custom-aside-links";
 
-// Site settings of type `list`/`group_list` are exposed client-side as a
-// raw pipe-delimited string, not an array — split on "|" ourselves.
-function parseLinks(rawList) {
-  return (rawList || "")
-    .split(ENTRY_SEPARATOR)
-    .filter(Boolean)
-    .map((line) => line.split(LINK_FIELD_SEPARATOR).map((part) => part.trim()))
-    .filter(([, label, href]) => label && href)
-    .map(([icon, label, href]) => ({ icon: icon || "link", label, href }));
+// Site settings backed by a `json_schema` are exposed client-side as a raw
+// JSON string, not an array — parse it ourselves.
+function parseLinks(rawJson) {
+  let links;
+  try {
+    links = JSON.parse(rawJson || "[]");
+  } catch {
+    return [];
+  }
+
+  if (!Array.isArray(links)) {
+    return [];
+  }
+
+  return links
+    .filter(({ label, href } = {}) => label && href)
+    .map(({ icon, label, href }) => ({ icon: icon || "link", label, href }));
 }
 
+// Site settings of type `group_list` are exposed client-side as a raw
+// pipe-delimited string, not an array — split on "|" ourselves.
 function parseGroupIds(rawGroupList) {
   return (rawGroupList || "")
     .split(ENTRY_SEPARATOR)

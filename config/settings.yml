@@ -16,6 +16,5 @@ plugins:
 
   custom_aside_links:
     client: true
-    type: list
-    list_type: compact
-    default: ""
+    default: "[]"
+    json_schema: DiscourseCustomAsideLinks::CustomAsideLinksJsonSchema
