@@ -88,7 +88,7 @@ export default apiInitializer((api) => {
       }
 
       get links() {
-        return sectionLinks;
+        return sectionLinks.map((Link) => new Link());
       }
 
       get displaySection() {
