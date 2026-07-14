@@ -1,0 +1,45 @@
+// Tighten spacing and lay each schema entry out as a single inline row on
+// wider screens. This targets Discourse's shared `json_schema` setting
+// editor (used for the `custom_aside_links` setting), which stacks fields
+// vertically by default — fine on mobile, wasteful on desktop for a
+// 3-field (icon/label/href) row.
+.json-schema-editor-modal {
+  .je-object__container {
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .form-group {
+    margin-bottom: 0.35em;
+  }
+
+  @media (min-width: 700px) {
+    .je-object__container,
+    .je-object__container > .card-body {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 0 0.75em;
+    }
+
+    .je-object__container > .card-title,
+    .je-object__container > .btn-group {
+      flex: 1 1 100%;
+    }
+
+    .form-group {
+      flex: 1 1 0;
+      min-width: 0;
+      margin-bottom: 0.35em;
+
+      label {
+        display: block;
+        width: auto;
+      }
+
+      .form-control {
+        width: 100%;
+      }
+    }
+  }
+}
