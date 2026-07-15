@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
-import SiteSetting from "discourse/admin/models/site-setting";
+import { ajax } from "discourse/lib/ajax";
 import DButton from "discourse/ui-kit/d-button";
 import CustomAsideLinksEditorModal from "./modal/custom-aside-links-editor";
 
@@ -23,7 +23,11 @@ export default class CustomAsideLinksEditButton extends Component {
     this.modal.show(CustomAsideLinksEditorModal, {
       model: {
         value: this.setting.value,
-        save: (value) => SiteSetting.update(SETTING_NAME, value),
+        save: (value) =>
+          ajax(`/admin/site_settings/${SETTING_NAME}`, {
+            type: "PUT",
+            data: { [SETTING_NAME]: value },
+          }),
       },
     });
   }
