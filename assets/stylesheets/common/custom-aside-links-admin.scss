@@ -1,11 +1,11 @@
 div.sidebar-sections {
   div.sidebar-custom-sections {
-    order: -2;
+    order: -2 !important;
   }
-}
-
-div[data-setting="custom_aside_links"] {
-  order: -1;
+  
+  div[data-setting="custom_aside_links"] {
+    order: -1 !important;
+  }
 }
 
 // `custom_aside_links` now uses its own editor (custom-aside-links-editor
