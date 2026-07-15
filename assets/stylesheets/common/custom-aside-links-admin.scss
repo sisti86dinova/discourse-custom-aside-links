@@ -1,8 +1,16 @@
+// `custom_aside_links` now uses its own editor (custom-aside-links-editor
+// modal, styled via the reused .sidebar-section-form-modal core classes)
+// instead of the generic json_schema editor — hide the native edit button
+// for this one setting so only our button shows.
+[data-setting="custom_aside_links"] .setting-value-edit-button {
+  display: none;
+}
+
 // Tighten spacing and lay each schema entry out as a single inline row on
 // wider screens. This targets Discourse's shared `json_schema` setting
-// editor (used for the `custom_aside_links` setting), which stacks fields
-// vertically by default — fine on mobile, wasteful on desktop for a
-// 3-field (icon/label/href) row.
+// editor, used by other plugins' settings on this install — stacks fields
+// vertically by default, which is fine on mobile but wasteful on desktop
+// for a short, flat schema.
 .json-schema-editor-modal {
   .je-object__container {
     padding-bottom: 0.5em;

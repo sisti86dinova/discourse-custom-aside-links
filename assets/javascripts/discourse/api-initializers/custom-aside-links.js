@@ -1,4 +1,5 @@
 import { apiInitializer } from "discourse/lib/api";
+import CustomAsideLinksEditButton from "../components/custom-aside-links-edit-button";
 
 const ENTRY_SEPARATOR = "|";
 const SECTION_NAME = "custom-aside-links";
@@ -32,6 +33,8 @@ function parseGroupIds(rawGroupList) {
 }
 
 export default apiInitializer((api) => {
+  api.renderInOutlet("site-setting-after-label", CustomAsideLinksEditButton);
+
   const siteSettings = api.container.lookup("service:site-settings");
 
   if (!siteSettings.custom_aside_links_enabled) {
