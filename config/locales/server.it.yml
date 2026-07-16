@@ -1,0 +1,6 @@
+it:
+  site_settings:
+    custom_aside_links_enabled: "Abilita la visualizzazione dei link custom nella sidebar."
+    custom_aside_links_section_title: "Titolo della sezione collassabile nella sidebar."
+    custom_aside_links_visible_groups: "I gruppi che visualizzano i link custom. Lascia vuoto per mostrarli a tutti."
+    custom_aside_links: "I link della sezione."
